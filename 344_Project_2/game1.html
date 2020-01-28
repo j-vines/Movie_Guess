@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>Guessing Game</title>
+<link href="https://fonts.googleapis.com/css?family=Creepster|Open+Sans" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/style1.css">
+<script src="scripts/game1.js"></script>
+<base href="http://arden.cs.unca.edu/~jvines/344_Project_2/">
+</head>
+
+<body onload="gameStart()" id="myBody">
+  <header>
+    <h1><a href="game1.html" id="headerLink">Guess the Movie</a></h1>
+  </header>
+  
+  <main>
+    <img id="posterPic" src="" alt="movie poster">
+    <article id="homeArt">
+      <br><br><br>
+      <p>Guess the name of the movie whose poster is being shown...</p>
+      <p>To see a hint, hover your mouse over "Want a hint?" below.</p>
+      <br>
+      
+      <div id="gameStuff">
+      <table>
+        <tr>
+          <td><p id="scoreMessage">Score:&nbsp;&nbsp;&nbsp;</p></td>
+          <td><p id="score" class="bold green">0</p></td>
+        </tr>
+        <tr>
+          <td><p id="triesRemaining">Tries Remaining:&nbsp;&nbsp;&nbsp;</p></td>
+          <td><p id="progress" class="bold purple"></p></td>
+        </tr>
+      </table>
+      
+      <p id="gameOver" class="centered bold purple"></p>
+      
+      <form id="guessingGame" autocomplete="off" onsubmit="processGuess();return false;">
+        <table>
+          <tr>
+            <td>Movie:&nbsp;&nbsp;</td>
+            <td><input type="text" size="20" name="guess" id="userGuess"
+                       pattern="[0-9a-z\s]{1,30}" required title="Only numbers and lower-case letters are allowed." class="textInput"></td>
+            <td>&nbsp;&nbsp;</td>
+            <td><input type="submit" value="Guess!" id="subButton" class="button"></td>
+          </tr>
+        </table>
+      </form>
+      
+      <div class="centered">
+        <form id="newGame" onsubmit="gameStart();return false;">
+          <input type="submit" value="" id="newGameButton" class="button">
+        </form>
+      </div>
+      <br><br>
+      
+      <div class="centered">
+        <span id="requestHint" class="large" onmouseover="showHint()" onmouseout="hideHint()">Want a hint?</span>
+        <p id="hint" class="centered"></p>
+      </div>
+      </div>
+      <br>
+    </article>
+  </main>
+  
+  <footer>
+    &copy; Jack Vines 2019
+  </footer>
+  
+</body>
+</html>
